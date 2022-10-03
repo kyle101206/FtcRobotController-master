@@ -1,10 +1,11 @@
-package org.firstinspires.ftc.robotcontroller.Autons;
+package Autons;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcontroller.teleOp.Robot;
+import teleOp.Robot;
+
 
 @Autonomous(name = "EncoderAuton", group = "Autons")
 public class motorEncoder extends LinearOpMode {

@@ -1,9 +1,12 @@
-package org.firstinspires.ftc.robotcontroller.Autons;
+package Autons;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import org.firstinspires.ftc.robotcontroller.teleOp.Robot;
+
+
+import teleOp.Robot;
+
 @Disabled
 @Autonomous(name = "FinalAutons", group = "Autons")
 public class Auton extends LinearOpMode {

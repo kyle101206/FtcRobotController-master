@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.teleOp;
+package teleOp;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
@@ -7,11 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class Robot {
 
-    public DcMotor frontRight = null; // setting the dcMotors to private since this is going to be our object
+    public DcMotor frontRight = null;
     public DcMotor backRight = null;
     public DcMotor frontLeft = null;
     public DcMotor backLeft = null;
@@ -27,7 +28,7 @@ public class Robot {
 
     public void init(HardwareMap hwMap) { // mapping each motor so the phone can read it
         frontLeft = hwMap.dcMotor.get("front_left");
-        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);//may need to take out if robot not working or switch to without encoder to work
+        frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         frontRight = hwMap.dcMotor.get("front_right");
         frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -42,7 +43,7 @@ public class Robot {
         backRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         //Reversing one side of the mecanum drive
-        frontRight.setDirection(DcMotorSimple.Direction.REVERSE); // setting the motors so the code works and the motors don't spin out
+        frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.REVERSE);
 
         //May need to take out but can leave in for absolute going forward
@@ -57,7 +58,7 @@ public class Robot {
         rightElevator.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         claw = hwMap.servo.get("claw");
-        claw.setPosition(CLAW_HOME);//potentially switching to compliant wheels with a touch sensor
+        claw.setPosition(CLAW_HOME);
 
 
         }
@@ -77,10 +78,10 @@ public class Robot {
                 rightElevator.setPower(motorSpeed);
             }
         }
-        //converts the mili second to be full seconds and make it overall smarter
+        //converts the mili second to seconds
         public double smartSleep (double secondsToSleep){
                 runTime.reset(); //restart set the timer to 0
-                while ((runTime.seconds() < secondsToSleep)) {//may need to add opModeIsActive() in teleOP
+                while ((runTime.seconds() < secondsToSleep)) {
                     //sleep while the following conditions are true
                     telemetry.addData("Path", "Leg: %2.5f S Elapsed", runTime.seconds());
                     telemetry.update();
@@ -88,8 +89,8 @@ public class Robot {
             return secondsToSleep;
         }
         //constructors for autonomous
-            public void startDrive(double power, double second, Telemetry telemetry) {//may need to put opmode in the constructor
-                this.frontRight.setPower(power);//may need to put this.
+            public void startDrive(double power, double second, Telemetry telemetry) {
+                this.frontRight.setPower(power);
                 this.frontLeft.setPower(power);
                 this.backRight.setPower(power);
                 this.backLeft.setPower(power);

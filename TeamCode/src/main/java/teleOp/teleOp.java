@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.robotcontroller.teleOp;
+package teleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -40,7 +40,7 @@ public class teleOp extends OpMode {
         final double ARM_SPEED = 0.01;
 
         robot.mecDrive(vertical, horizontal, rotate);//Mecanum drive
-        //need to check if it goes strafe and diagonal!!!!!!!
+
 
         if(ground){
             robot.elevator(leftPosition,rightPosition,0);
